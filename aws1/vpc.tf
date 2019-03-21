@@ -48,3 +48,13 @@ resource "aws_sercurity_group" "sgweb"{
     }
 
 }
+resource "aws_sercurity_group" "db"{
+	name="vpc_db_sg"
+	desciption="allow incomming request"
+	ingress{
+		from_port=3306
+		to_port=3306
+		protocol="tcp"
+		cidr_block=[0.0.0.0/32]
+	}
+}
